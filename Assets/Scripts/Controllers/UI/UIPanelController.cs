@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Signals;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using Sirenix.OdinInspector;
 
 public class UIPanelController : MonoBehaviour
 {
@@ -25,16 +25,10 @@ public class UIPanelController : MonoBehaviour
     
     private void SubscribeEvents()
     {
-        CoreUISignals.Instance.onOpenPanel += OnOpenPanel;
-        CoreUISignals.Instance.onClosePanel += OnClosePanel;
-        CoreUISignals.Instance.onCloseAllPanels += OnCloseAllPanels;
 
     }
     private void UnSubscribeEvents()
     {
-        CoreUISignals.Instance.onOpenPanel -= OnOpenPanel;
-        CoreUISignals.Instance.onClosePanel -= OnClosePanel;
-        CoreUISignals.Instance.onCloseAllPanels -= OnCloseAllPanels;
 
     }
 
@@ -42,12 +36,14 @@ public class UIPanelController : MonoBehaviour
     {
         UnSubscribeEvents();
     }
-    
+
+    [Button("OpenPanel")]
     private void OnOpenPanel(UIPanelTypes type, int layerPos)
     {
         Instantiate(Resources.Load<GameObject>($"Screens/{type}Panel"), layers[layerPos]);
     }
     
+    [Button("ClosePanel")]
     private void OnClosePanel(int layerPos)
     {
         if (layers[layerPos].transform.childCount > 0) 
