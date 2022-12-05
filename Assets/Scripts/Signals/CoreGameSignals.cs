@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class CoreGameSignals : MonoBehaviour
 {
     #region Singleton
-    // Static, class silinse veya bulunduğu object yok edilse bile işlemeye devam etmesine yarar. 
+   
     public static CoreGameSignals Instance;
 
     private void Awake()
@@ -28,5 +28,6 @@ public class CoreGameSignals : MonoBehaviour
     public UnityAction onNextLevel = delegate { };
     public UnityAction onRestartLevel = delegate { };
     public UnityAction onReset = delegate { };
+    public UnityAction onPlay = delegate { };
 
 }

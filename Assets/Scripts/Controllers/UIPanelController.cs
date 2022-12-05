@@ -1,5 +1,7 @@
+﻿using System.Collections.Generic;
+using Signals;
 using UnityEngine;
-using System.Collections.Generic;
+using System.Linq;
 
 public class UIPanelController : MonoBehaviour
 {
@@ -11,20 +13,28 @@ public class UIPanelController : MonoBehaviour
 
     #endregion
 
+
     #endregion
 
     private void OnEnable()
     {
-        SubscribeEvents();
-    }
 
+        SubscribeEvents();
+        
+    }
+    
     private void SubscribeEvents()
     {
+        CoreUISignals.Instance.onOpenPanel += OnOpenPanel;
+        CoreUISignals.Instance.onClosePanel += OnClosePanel;
+        CoreUISignals.Instance.onCloseAllPanels += OnCloseAllPanels;
 
     }
-
     private void UnSubscribeEvents()
     {
+        CoreUISignals.Instance.onOpenPanel -= OnOpenPanel;
+        CoreUISignals.Instance.onClosePanel -= OnClosePanel;
+        CoreUISignals.Instance.onCloseAllPanels -= OnCloseAllPanels;
 
     }
 
@@ -32,29 +42,24 @@ public class UIPanelController : MonoBehaviour
     {
         UnSubscribeEvents();
     }
-    //[Button("OnOpenPanel")]
-    private void OnOpenPanel(UIPanelTypes type, int layerValue)
+    
+    private void OnOpenPanel(UIPanelTypes type, int layerPos)
     {
-        OnClosePanel(layerValue);
-        Instantiate(Resources.Load<GameObject>($"Screens/{type}Panel"), layers[layerValue]);
+        Instantiate(Resources.Load<GameObject>($"Screens/{type}Panel"), layers[layerPos]);
     }
-    //[Button("OnClosePanel")]
-    private void OnClosePanel(int layerValue)
+    
+    private void OnClosePanel(int layerPos)
     {
-        if(layers[layerValue].childCount > 0)
-        {
-            Destroy(layers[layerValue].GetChild(0).gameObject);
-        }
+        if (layers[layerPos].transform.childCount > 0) 
+            Destroy(layers[layerPos].GetChild(0).gameObject);
     }
 
     private void OnCloseAllPanels()
     {
-        for(int i = 0; i < layers.Count; i++)
+        for (int i = 0; i < layers.Count; i++)
         {
-            if(layers[i].childCount > 0)
-            {
-                Destroy(layers[i].gameObject);
-            }
+            if (layers[i].transform.childCount > 0) 
+                Destroy(layers[i].GetChild(0).gameObject);
         }
     }
 
