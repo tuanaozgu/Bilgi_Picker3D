@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -67,7 +68,7 @@ public class LevelManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        CoreGameSignals.Instance.onLevelInitialize += _levelLoaderCommand.Execute;
+        CoreGameSignals.Instance.onLevelInitialize += _levelLoaderCommand.Execute; 
         CoreGameSignals.Instance.onClearActiveLevel += _levelDestroyerCommand.Execute;
         CoreGameSignals.Instance.onNextLevel += OnNextLevel;
         CoreGameSignals.Instance.onRestartLevel += OnRestartLevel;
@@ -93,6 +94,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnNextLevel()
     {
+        levelID++;
         CoreGameSignals.Instance.onClearActiveLevel?.Invoke();
         CoreGameSignals.Instance.onReset?.Invoke();
         CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID);
