@@ -10,14 +10,16 @@ public class OnLevelLoaderCommand : ICommand
     {
         _levelHolder = levelHolder;
     }
-    
+   
+    public void Execute()
+    {
+
+    }
+
     public void Execute(int levelID)
     {
         Object.Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level{levelID}"), _levelHolder);
     }
 
-    public void Execute()
-    {
-
-    }
+    
 }

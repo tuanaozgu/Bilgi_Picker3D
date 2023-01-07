@@ -1,4 +1,4 @@
-
+using Signals;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         UnSubscribeEvents();
     }
 
+    //[Button("Change State")]
     private void OnChangeGameState(GameStates state)
     {
         states = state;

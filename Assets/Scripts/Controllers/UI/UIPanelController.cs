@@ -1,4 +1,5 @@
 using UnityEngine;
+
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
@@ -23,12 +24,12 @@ public class UIPanelController : MonoBehaviour
 
     private void SubscribeEvents()
     {
-
+        
     }
 
     private void UnsubscribeEvents()
     {
-
+        
     }
 
     private void OnDisable()
@@ -52,14 +53,13 @@ public class UIPanelController : MonoBehaviour
         }
     }
 
+    [Button("OnCloseAllPanel")]
     private void OnCloseAllPanels()
     {
         for (int i = 0; i < layers.Count; i++)
         {
-            if (layers[i].childCount > 0)
-            {
+            if (layers[i].transform.childCount > 0)
                 Destroy(layers[i].GetChild(0).gameObject);
-            }
         }
     }
 
