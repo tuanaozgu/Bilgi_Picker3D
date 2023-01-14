@@ -16,11 +16,13 @@ using DG.Tweening;
         [SerializeField] private PlayerManager manager;
         [SerializeField] private new Renderer renderer;
         [SerializeField] private TextMeshPro scaleText;
-        #endregion
+        [SerializeField] private ParticleSystem confettiParticle;
 
-        #region Private Variables
+    #endregion
 
-        [ShowInInspector] private ScaleData _data;
+    #region Private Variables
+
+    [ShowInInspector] private ScaleData _data;
 
         #endregion
 
@@ -42,7 +44,12 @@ using DG.Tweening;
         scaleText.rectTransform.DOAnchorPosY(.85f, .65f).SetRelative(true).SetEase(Ease.OutBounce).OnComplete(() =>
             scaleText.rectTransform.DOAnchorPosY(-.85f, .65f).SetRelative(true));
     }
-
+    internal void PlayConfetiParticle()
+    {
+        confettiParticle.Play();
+        //confettiParticle.SetActive(true);
+        //DOVirtual.DelayedCall(2, () => confettiParticle.SetActive(false));
+    }
     internal void OnReset()
         {
 

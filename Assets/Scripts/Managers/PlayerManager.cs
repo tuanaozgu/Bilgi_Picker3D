@@ -136,7 +136,8 @@ using UnityEngine;
             movementController.IsReadyToPlay(true);
             meshController.ScaleUpPlayer();
             meshController.ShowUpText();
-        }
+        meshController.PlayConfetiParticle();
+    }
           private void OnFinishAreaEntered()
         {
         movementController.IsReadyToPlay(false);
