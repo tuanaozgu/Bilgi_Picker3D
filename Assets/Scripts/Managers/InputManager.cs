@@ -39,8 +39,9 @@ namespace Managers
 
         private void Awake()
         {
-            _data = GetInputData();
+            _data = GetInputData();                  
         }
+
 
         private InputData GetInputData()
         {

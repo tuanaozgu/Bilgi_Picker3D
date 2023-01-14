@@ -4,7 +4,6 @@ using Data.ValueObjects;
 using Keys;
 using Signals;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 
 namespace Managers
@@ -12,6 +11,12 @@ namespace Managers
     public class PlayerManager : MonoBehaviour
     {
         #region Self Variables
+
+        #region Public Variables
+
+        public byte StageValue = 0;
+
+        #endregion
 
         #region Serialized Variables
 
@@ -91,6 +96,7 @@ namespace Managers
         {
             movementController.IsReadyToMove(true);
         }
+
         private void OnInputDragged(HorizontalInputParams inputParams)
         {
             movementController.UpdateInputParams(inputParams);
@@ -105,6 +111,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(false);
         }
+
         private void OnLevelFailed()
         {
             movementController.IsReadyToPlay(false);
@@ -114,13 +121,16 @@ namespace Managers
         {
             movementController.IsReadyToPlay(false);
         }
-        private void OnStageAreaSuccessful()
+
+        private void OnStageAreaSuccessful(int value)
         {
+            StageValue = (byte)++value;
             movementController.IsReadyToPlay(true);
         }
 
         private void OnReset()
         {
+            StageValue = 0;
             movementController.OnReset();
             meshController.OnReset();
             physicsController.OnReset();
