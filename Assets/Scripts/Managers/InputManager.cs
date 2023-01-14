@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Data.UnityObjects;
 using Data.ValueObjects;
 using Signals;
@@ -6,6 +7,7 @@ using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Keys;
 
 namespace Managers
 {
@@ -54,12 +56,26 @@ namespace Managers
 
         private void SubscribeEvents()
         {
+            InputSignals.Instance.onEnableInput += OnEnableInput;
+            InputSignals.Instance.onDisableInput += OnDisableInput;
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onPlay += OnPlay;
         }
 
+        private void OnDisableInput()
+        {
+            _isAvailableForTouch = false;
+        }
+
+        private void OnEnableInput()
+        {
+            _isAvailableForTouch = true;
+        }
+
         private void UnSubscribeEvents()
         {
+            InputSignals.Instance.onEnableInput -= OnEnableInput;
+            InputSignals.Instance.onDisableInput -= OnDisableInput;
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onPlay -= OnPlay;
         }

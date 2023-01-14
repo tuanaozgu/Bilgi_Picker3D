@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CD_Player
   m_EditorClassIdentifier: 
   Data:
-    movementData:
-      forwardSpeed: 0
-      sidewaysSpeed: 0
-      forwardForceCounter: 0
-    scaleData:
-      scaleCounter: 0
+    MovementData:
+      ForwardSpeed: 5
+      SidewaysSpeed: 3
+      ForwardForceCounter: 10
+    ScaleData:
+      ScaleCounter: 1.2

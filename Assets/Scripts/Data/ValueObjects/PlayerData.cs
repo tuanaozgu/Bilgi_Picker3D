@@ -13,15 +13,15 @@ namespace Data.ValueObjects
     [Serializable]
     public struct MovementData
     {
-        public float forwardSpeed;
-        public float sidewaysSpeed;
-        public float forwardForceCounter;
+        public float ForwardSpeed;
+        public float SidewaysSpeed;
+        public float ForwardForceCounter;
 
         public MovementData(float forwardSpeed, float sidewaysSpeed, float forwardForceCounter)
         {
-            this.forwardSpeed = forwardSpeed;
-            this.sidewaysSpeed = sidewaysSpeed;
-            this.forwardForceCounter = forwardForceCounter;
+            this.ForwardSpeed = forwardSpeed;
+            this.SidewaysSpeed = sidewaysSpeed;
+            this.ForwardForceCounter = forwardForceCounter;
         }
     }
     
