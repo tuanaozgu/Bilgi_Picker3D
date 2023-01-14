@@ -2,9 +2,11 @@
 using Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
-namespace Controllers.Player
-{
+
+
     public class PlayerMeshController : MonoBehaviour
     {
         #region Self Variables
@@ -13,7 +15,7 @@ namespace Controllers.Player
 
         [SerializeField] private PlayerManager manager;
         [SerializeField] private new Renderer renderer;
-
+        [SerializeField] private TextMeshPro scaleText;
         #endregion
 
         #region Private Variables
@@ -29,10 +31,21 @@ namespace Controllers.Player
         {
             _data = scaleData;
         }
-        internal void OnReset()
+    internal void ScaleUpPlayer()
+    {
+        renderer.gameObject.transform.DOScaleX(_data.scaleCounter, 1).SetEase(Ease.Flash);
+    }
+
+    internal void ShowUpText()
+    {
+        scaleText.DOFade(1, 0f).SetEase(Ease.Flash).OnComplete(() => scaleText.DOFade(0, 0).SetDelay(.65f));
+        scaleText.rectTransform.DOAnchorPosY(.85f, .65f).SetRelative(true).SetEase(Ease.OutBounce).OnComplete(() =>
+            scaleText.rectTransform.DOAnchorPosY(-.85f, .65f).SetRelative(true));
+    }
+
+    internal void OnReset()
         {
 
         }
 
     }
-}

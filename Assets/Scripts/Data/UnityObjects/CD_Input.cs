@@ -1,4 +1,5 @@
-﻿using Data.ValueObjects;
+﻿using System.Collections.Generic;
+using Data.ValueObjects;
 using UnityEngine;
 
 namespace Data.UnityObjects

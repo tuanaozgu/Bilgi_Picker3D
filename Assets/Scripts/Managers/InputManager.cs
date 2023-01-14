@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Data.UnityObjects;
 using Data.ValueObjects;
+using Keys;
 using Signals;
 using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Keys;
 
 namespace Managers
 {
@@ -39,9 +38,8 @@ namespace Managers
 
         private void Awake()
         {
-            _data = GetInputData();                  
+            _data = GetInputData();
         }
-
 
         private InputData GetInputData()
         {
@@ -61,16 +59,6 @@ namespace Managers
             InputSignals.Instance.onDisableInput += OnDisableInput;
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onPlay += OnPlay;
-        }
-
-        private void OnDisableInput()
-        {
-            _isAvailableForTouch = false;
-        }
-
-        private void OnEnableInput()
-        {
-            _isAvailableForTouch = true;
         }
 
         private void UnSubscribeEvents()
@@ -97,16 +85,19 @@ namespace Managers
                 _isTouching = false;
 
                 InputSignals.Instance.onInputReleased?.Invoke();
+                //Debug.LogWarning("Executed ---> onInputReleased");
             }
 
             if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())
             {
                 _isTouching = true;
                 InputSignals.Instance.onInputTaken?.Invoke();
+                //Debug.LogWarning("Executed ---> onInputTaken");
                 if (!_isFirstTimeTouchTaken)
                 {
                     _isFirstTimeTouchTaken = true;
                     InputSignals.Instance.onFirstTimeTouchTaken?.Invoke();
+                    //Debug.LogWarning("Executed ---> onFirstTimeTouchTaken");
                 }
 
                 _mousePosition = Input.mousePosition;
@@ -118,7 +109,7 @@ namespace Managers
                 {
                     if (_mousePosition != null)
                     {
-                        Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
+                        Vector2 mouseDeltaPos = (Vector2)Input.mousePosition - _mousePosition.Value;
 
 
                         if (mouseDeltaPos.x > _data.HorizontalInputSpeed)
@@ -137,6 +128,7 @@ namespace Managers
                             HorizontalInputClampNegativeSide = _data.ClampValues.x,
                             HorizontalInputClampPositiveSide = _data.ClampValues.y
                         });
+                        //Debug.LogWarning($"Executed ---> onInputDragged{_moveVector.x}");
                     }
                 }
             }
@@ -147,6 +139,15 @@ namespace Managers
             _isAvailableForTouch = true;
         }
 
+        private void OnEnableInput()
+        {
+            _isAvailableForTouch = true;
+        }
+
+        private void OnDisableInput()
+        {
+            _isAvailableForTouch = false;
+        }
 
         private bool IsPointerOverUIElement()
         {

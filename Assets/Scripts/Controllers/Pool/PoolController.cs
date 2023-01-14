@@ -8,8 +8,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
-namespace Controllers.Pool
-{
+
     public class PoolController : MonoBehaviour
     {
         #region Self Variables
@@ -66,7 +65,8 @@ namespace Controllers.Pool
 
         private void OnChangeThePoolColor(int stageValue)
         {
-            renderer.sharedMaterial.DOColor(new Color(0.1607842f, 0.6039216f, 0.1766218f), 1).SetEase(Ease.Linear);
+          if (stageValue == stageID)
+            renderer.material.DOColor(new Color(0.1607842f, 0.6039216f, 0.1766218f), 1).SetEase(Ease.Linear);
         }
 
         private void UnSubscribeEvents()
@@ -129,5 +129,5 @@ namespace Controllers.Pool
             _collectedCount--;
         }
     }
-}
+
 

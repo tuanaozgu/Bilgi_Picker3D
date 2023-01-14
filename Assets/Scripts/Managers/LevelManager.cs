@@ -3,8 +3,9 @@ using Data.UnityObjects;
 using Signals;
 using UnityEngine;
 
-namespace Managers
-{
+
+
+
     public class LevelManager : MonoBehaviour
     {
         #region Self Variables
@@ -115,4 +116,3 @@ namespace Managers
             return levelID;
         }
     }
-}
