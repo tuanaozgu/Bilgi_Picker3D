@@ -1,6 +1,11 @@
 using Enums;
 using Signals;
 using UnityEngine;
+using TMPro;
+
+
+
+
 
 namespace Managers
 {
@@ -9,6 +14,9 @@ namespace Managers
         #region Self Variables
 
         #region Public Variables
+        public TextMeshProUGUI pointText;
+        public GameObject PointText;
+        public int point;
 
         #endregion
 
@@ -17,7 +25,7 @@ namespace Managers
         #endregion
 
         #region Private Variables
-
+      
         #endregion
 
         #endregion
@@ -26,6 +34,7 @@ namespace Managers
         {
             SubscribeEvents();
         }
+
 
         private void SubscribeEvents()
         {
@@ -48,6 +57,8 @@ namespace Managers
             UnSubscribeEvents();
         }
 
+
+       
         private void OnLevelInitialize(int levelValue)
         {
             CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Level, 0);
@@ -56,7 +67,12 @@ namespace Managers
 
         private void OnLevelSuccessful()
         {
+            point = GameObject.FindGameObjectsWithTag("Point").Length;
+            pointText.text = "Point: 2" +point.ToString();
+            PointText.SetActive(true);
             CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Win, 2);
+            
+            
         }
 
         private void OnLevelFailed()
@@ -68,12 +84,15 @@ namespace Managers
         {
             CoreGameSignals.Instance.onNextLevel?.Invoke();
             CoreGameSignals.Instance.onReset?.Invoke();
+            PointText.SetActive(false);
         }
+    
 
         public void RestartLevel()
         {
             CoreGameSignals.Instance.onRestartLevel?.Invoke();
             CoreGameSignals.Instance.onReset?.Invoke();
+            PointText.SetActive(false);
         }
 
         public void Play()

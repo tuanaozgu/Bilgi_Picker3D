@@ -8,6 +8,9 @@ TagManager:
   - PoolArea
   - Collectable
   - MiniGame
+  - CollectableSupreme
+  - MiniGameStart
+  - Point
   layers:
   - Default
   - TransparentFX

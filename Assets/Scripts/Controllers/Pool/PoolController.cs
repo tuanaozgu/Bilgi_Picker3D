@@ -102,9 +102,11 @@ namespace Controllers.Pool
 
         private void OnTriggerEnter(Collider other)
         {
+           
             if (!other.CompareTag("Collectable")) return;
             IncreaseCollectedCount();
             SetCollectedCountToText();
+           
         }
 
         private void SetCollectedCountToText()
@@ -116,17 +118,22 @@ namespace Controllers.Pool
         {
             _collectedCount++;
         }
-
+       
         private void OnTriggerExit(Collider other)
         {
+           
+          
             if (!other.CompareTag("Collectable")) return;
             DecreaseTheCollectedCount();
             SetCollectedCountToText();
+          
+           
         }
 
         private void DecreaseTheCollectedCount()
         {
             _collectedCount--;
         }
+        
     }
 }
