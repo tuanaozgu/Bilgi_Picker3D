@@ -1,9 +1,8 @@
-using UnityEngine;
 using Enums;
 using Managers;
 using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.UI;
-
 
 public class UIEventSubscriber : MonoBehaviour
 {
@@ -41,7 +40,7 @@ public class UIEventSubscriber : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        switch(type)
+        switch (type)
         {
             case UIEventSubscriptionTypes.OnPlay:
                 {
@@ -60,7 +59,8 @@ public class UIEventSubscriber : MonoBehaviour
                 }
         }
     }
-    private void UnsubscribeEvents()
+
+    private void UnSubscribeEvents()
     {
         switch (type)
         {
@@ -84,7 +84,7 @@ public class UIEventSubscriber : MonoBehaviour
 
     private void OnDisable()
     {
-        UnsubscribeEvents();
+        UnSubscribeEvents();
     }
-
 }
+

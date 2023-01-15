@@ -1,5 +1,5 @@
+using Commands.Player;
 using Controllers.Player;
-
 using Data.UnityObjects;
 using Data.ValueObjects;
 using Keys;
@@ -7,7 +7,8 @@ using Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-
+namespace Managers
+{
     public class PlayerManager : MonoBehaviour
     {
         #region Self Variables
@@ -15,12 +16,12 @@ using UnityEngine;
         #region Public Variables
 
         public byte StageValue = 0;
+
         internal ForceBallsToPoolCommand ForceCommand;
-  
 
-    #endregion
+        #endregion
 
-    #region Serialized Variables
+        #region Serialized Variables
 
         [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerPhysicsController physicsController;
@@ -42,19 +43,21 @@ using UnityEngine;
             SendDataToControllers();
             Init();
         }
+
         private void Init()
         {
-        ForceCommand = new ForceBallsToPoolCommand(this, _data.movementData);
+            ForceCommand = new ForceBallsToPoolCommand(this, _data.MovementData);
         }
-    private PlayerData GetPlayerData()
+
+        private PlayerData GetPlayerData()
         {
             return Resources.Load<CD_Player>("Data/CD_Player").Data;
         }
 
         private void SendDataToControllers()
         {
-            movementController.GetMovementData(_data.movementData);
-            meshController.GetMeshData(_data.scaleData);
+            movementController.GetMovementData(_data.MovementData);
+            meshController.GetMeshData(_data.ScaleData);
         }
 
         private void OnEnable()
@@ -105,7 +108,7 @@ using UnityEngine;
             movementController.IsReadyToMove(true);
         }
 
-        private void OnInputDragged(HorizontalInputParams inputParams)
+        private void OnInputDragged(HorizontalnputParams inputParams)
         {
             movementController.UpdateInputParams(inputParams);
         }
@@ -136,14 +139,15 @@ using UnityEngine;
             movementController.IsReadyToPlay(true);
             meshController.ScaleUpPlayer();
             meshController.ShowUpText();
-        meshController.PlayConfetiParticle();
-    }
-          private void OnFinishAreaEntered()
-        {
-        movementController.IsReadyToPlay(false);
+            meshController.PlayConfetiParticle();
         }
 
-    private void OnReset()
+        private void OnFinishAreaEntered()
+        {
+            movementController.IsReadyToPlay(false);
+        }
+
+        private void OnReset()
         {
             StageValue = 0;
             movementController.OnReset();
@@ -151,3 +155,4 @@ using UnityEngine;
             physicsController.OnReset();
         }
     }
+}

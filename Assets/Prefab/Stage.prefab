@@ -2554,7 +2554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4027520978237220144}
   - component: {fileID: 6296851271180745564}
-  - component: {fileID: 4571477791295377639}
+  - component: {fileID: 4813441044872233773}
   m_Layer: 0
   m_Name: Physics
   m_TagString: PoolArea
@@ -2589,7 +2589,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5085816, z: 1}
   m_Center: {x: 0, y: 0.7542908, z: 0}
---- !u!114 &4571477791295377639
+--- !u!114 &4813441044872233773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5864076620977841907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4b13cfa0d782e4b9eb78c4106d4a36, type: 3}
+  m_Script: {fileID: 11500000, guid: 49ba6de3b1fb343e6ad61dd7c1b5c6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tweens:

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3737175, g: 0.18551403, b: 0.48875302, a: 1}
+  m_IndirectSpecularColor: {r: 0.49412262, g: 0.7169263, b: 0.729247, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 30007464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038a35c5411f66c4085fb89f1f0dd578, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e11f5ba0742e7549a42f62bde07f2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   states: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 31290925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619f0ddb4035fae4ea41147f60493af7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3742a1676fa046047b6aff1ffe67c3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &35539192
@@ -289,10 +289,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 35539192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fff6f2e9b915a409313d25768b2784, type: 3}
+  m_Script: {fileID: 11500000, guid: 67cd211fbaacd44f6be0bae84334f2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 35539194}
+  LockAxis: 0
+  CoreType: 0
+  m_Position: 0
 --- !u!114 &35539196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,9 +316,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 35539192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b2d537b2f216a46accf5c4eded671f, type: 3}
+  m_Script: {fileID: 11500000, guid: a1405a99bef1413d9cc1866df0b94f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 35539194}
 --- !u!1 &121859629
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +512,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 27dd6a104ca0c584097786eb06c01755, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 03bee6da49f472348af9a8f9ae21a7af, type: 2}
 --- !u!4 &245697428
 Transform:
   m_ObjectHideFlags: 0
@@ -564,7 +567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 389588183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b2d537b2f216a46accf5c4eded671f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e9fcb477cc0347dfa62f7ebb0fe3b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &488850154
@@ -642,7 +645,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 571898825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1ad344f6cd434ba90fdd31ab7b2723, type: 3}
+  m_Script: {fileID: 11500000, guid: 99917ad8f6474cf7b087aa3ed55d116d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1154775483
@@ -685,12 +688,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1154775483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109e4d6f774e62c429494ce28b8f80de, type: 3}
+  m_Script: {fileID: 11500000, guid: 15189e54933a4f00b8f95e8e7286a99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLevelCount: 0
+  totalLevelCount: 1
   levelID: 0
-  levelHolder: {fileID: 0}
+  levelHolder: {fileID: 2020574379}
 --- !u!1 &1187735917
 GameObject:
   m_ObjectHideFlags: 3
@@ -876,7 +879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488715372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76220c5ea5db414eb706ba8d7802fef9, type: 3}
+  m_Script: {fileID: 11500000, guid: ceddf3f088634eaebdcaae6b44c2f066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1488715376
@@ -888,7 +891,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488715372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1954e5c9a3ed44748780e07452acb655, type: 3}
+  m_Script: {fileID: 11500000, guid: 0515ec22714646519d5c135692e6e2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1542449794
@@ -978,7 +981,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744275228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a884ba6f2123d4bbb1637f89c20e06, type: 3}
+  m_Script: {fileID: 11500000, guid: aa57519fec480bc47856dff0198d35e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1747086858
@@ -1089,7 +1092,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 1
   m_AntialiasingQuality: 2

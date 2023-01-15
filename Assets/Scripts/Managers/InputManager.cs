@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Data.UnityObjects;
 using Data.ValueObjects;
 using Keys;
@@ -122,7 +122,7 @@ namespace Managers
 
                         _mousePosition = Input.mousePosition;
 
-                        InputSignals.Instance.onInputDragged?.Invoke(new HorizontalInputParams()
+                        InputSignals.Instance.onInputDragged?.Invoke(new HorizontalnputParams()
                         {
                             HorizontalInputValue = _moveVector.x,
                             HorizontalInputClampNegativeSide = _data.ClampValues.x,

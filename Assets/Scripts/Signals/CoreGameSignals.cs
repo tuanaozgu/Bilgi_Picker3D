@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Enums;
 using Extensions;
 using UnityEngine.Events;

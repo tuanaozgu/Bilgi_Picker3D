@@ -1,6 +1,9 @@
-public enum CinemachineLockAxis
+namespace Enums
 {
-    XValue,
-    YValue,
-    ZValue
+    public enum CinemachineLockAxis
+    {
+        XValue,
+        YValue,
+        ZValue
+    }
 }

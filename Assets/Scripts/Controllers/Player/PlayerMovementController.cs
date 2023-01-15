@@ -1,4 +1,4 @@
-﻿using Data.ValueObjects;
+using Data.ValueObjects;
 using Keys;
 using Managers;
 using Sirenix.OdinInspector;
@@ -89,7 +89,7 @@ namespace Controllers.Player
         {
             _isReadyToMove = condition;
         }
-        internal void UpdateInputParams(HorizontalInputParams inputParams)
+        internal void UpdateInputParams(HorizontalnputParams inputParams)
         {
             _xValue = inputParams.HorizontalInputValue;
             _clampValues = new float2(inputParams.HorizontalInputClampNegativeSide,

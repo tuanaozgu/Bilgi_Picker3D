@@ -1,5 +1,5 @@
-
-
+namespace Enums
+{
     public enum CinemachineCoreType
     {
         Body,
@@ -7,4 +7,4 @@
         Finalize,
         Noise,
     }
-
+}

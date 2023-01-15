@@ -1,11 +1,11 @@
-﻿
+﻿using Commands;
+using Commands.Level;
 using Data.UnityObjects;
 using Signals;
 using UnityEngine;
 
-
-
-
+namespace Managers
+{
     public class LevelManager : MonoBehaviour
     {
         #region Self Variables
@@ -92,7 +92,7 @@ using UnityEngine;
 
         private void Start()
         {
-            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID);
+            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID % totalLevelCount);
             CoreUISignals.Instance.onOpenPanel?.Invoke(Enums.UIPanelTypes.Start, 1);
         }
 
@@ -101,18 +101,19 @@ using UnityEngine;
             levelID++;
             CoreGameSignals.Instance.onClearActiveLevel?.Invoke();
             CoreGameSignals.Instance.onReset?.Invoke();
-            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID);
+            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID % totalLevelCount);
         }
 
         private void OnRestartLevel()
         {
             CoreGameSignals.Instance.onClearActiveLevel?.Invoke();
             CoreGameSignals.Instance.onReset?.Invoke();
-            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID);
+            CoreGameSignals.Instance.onLevelInitialize?.Invoke(levelID % totalLevelCount);
         }
 
         private int OnGetLevelValue()
         {
-            return levelID;
+            return levelID % totalLevelCount;
         }
     }
+}

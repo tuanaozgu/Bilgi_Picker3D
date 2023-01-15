@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Data.UnityObjects;
 using Data.ValueObjects;
@@ -8,7 +7,8 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
-
+namespace Controllers.Pool
+{
     public class PoolController : MonoBehaviour
     {
         #region Self Variables
@@ -39,7 +39,7 @@ using UnityEngine;
         private PoolData GetPoolData()
         {
             return Resources.Load<CD_Level>("Data/CD_Level")
-                .Levels[(int)CoreGameSignals.Instance.onGetLevelValue?.Invoke()]
+                .Levels[(int) CoreGameSignals.Instance.onGetLevelValue?.Invoke()]
                 .PoolList[stageID];
         }
 
@@ -65,8 +65,8 @@ using UnityEngine;
 
         private void OnChangeThePoolColor(int stageValue)
         {
-          if (stageValue == stageID)
-            renderer.material.DOColor(new Color(0.1607842f, 0.6039216f, 0.1766218f), 1).SetEase(Ease.Linear);
+            if (stageValue == stageID)
+                renderer.material.DOColor(new Color(0.1607842f, 0.6039216f, 0.1766218f), 1).SetEase(Ease.Linear);
         }
 
         private void UnSubscribeEvents()
@@ -129,5 +129,4 @@ using UnityEngine;
             _collectedCount--;
         }
     }
-
-
+}
